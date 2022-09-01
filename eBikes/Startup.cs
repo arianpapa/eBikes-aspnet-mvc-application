@@ -65,8 +65,8 @@ namespace eBikes
             });
 
             //Seed database
-            AppDbInitializer.Seed(app);
-            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
+            //AppDbInitializer.Seed(app);
+            //AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
         }
     }
 }
