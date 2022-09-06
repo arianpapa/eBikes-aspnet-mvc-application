@@ -18,8 +18,8 @@ namespace eBikes.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var allCategories = await _context.Products.ToListAsync();
-            return View();
+            var allProducts = await _context.Products.Include(n => n.Category).OrderBy(n => n.Name).ToListAsync();
+            return View(allProducts);
         }
     }
 }

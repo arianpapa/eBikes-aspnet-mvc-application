@@ -73,7 +73,7 @@ namespace eBikes.Data
                 if (!context.Products.Any())
                 {
                     context.Products.AddRange(new List<Product>()
-                    {                      
+                    {
                         new Product()
                         {
                             Name = "Raven",
@@ -83,7 +83,7 @@ namespace eBikes.Data
                             imageSize = "33px",
                             Created_at = DateTime.Now.AddDays(-10),
                             Updated_at = DateTime.Now.AddDays(-2),
-                            CategoryId = 1,
+                            CategoryId = 6,
                             Quantity = 3,
                         },
                         new Product()
@@ -95,13 +95,14 @@ namespace eBikes.Data
                             imageSize = "33px",
                             Created_at = DateTime.Now.AddDays(-10),
                             Updated_at = DateTime.Now.AddDays(-2),
-                            CategoryId = 2,
+                            CategoryId = 7,
                             Quantity = 2,
 
                         }
                     });
                     context.SaveChanges();
                 }
+
             }
         }
     }

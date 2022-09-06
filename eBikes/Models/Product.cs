@@ -18,9 +18,14 @@ namespace eBikes.Models
         public string imageSize { get; set; }
         public DateTime Created_at { get; set; }
         public DateTime Updated_at { get; set; }
-        [ForeignKey("Category")]
-        public int CategoryId { get; set; }
         public int Quantity { get; set; }
+
+
+        //Category
+        public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
+        public Category Category { get; set; }
+        
     }
 }
 
