@@ -30,14 +30,14 @@ namespace eBikes.Data
                         {
                             Name = "Road bikes",
                             imageName = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
-                            imageSize = "33px",
+                            
                             Description = "This is the description of the Road bikes"
                         },
                         new Category()
                         {
                             Name = "Mountain bikes",
                             imageName = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
-                            imageSize = "33px",
+                            
                             Description = "This is the description of the Mountain bikes"
                         },
                     });
@@ -55,7 +55,7 @@ namespace eBikes.Data
                             Description = "This is the Blog of the second race",
                             Author = "Edi Mimo",
                             imageName = "http://dotnethow.net/images/actors/actor-4.jpeg",
-                            imageSize = "33px"
+                            
                         },
                         new Blog()
                         {
@@ -63,7 +63,7 @@ namespace eBikes.Data
                             Description = "This is the Blog of the first race",
                             Author = "Sokol Nimi",
                             imageName = "http://dotnethow.net/images/actors/actor-5.jpeg",
-                            imageSize = "33px"
+                            
                         }
                     });
                     context.SaveChanges();
@@ -80,7 +80,7 @@ namespace eBikes.Data
                             Description = "Cyclocross is not for the faint of heart. It’s all about getting dirty, and every weekend, hardcore racers endure cold, pain, and filth.",
                             Price = 200,
                             imageName = "https://cdn.shopify.com/s/files/1/2318/5263/files/Name1_2048x2048.jpg?v=1572560469",
-                            imageSize = "33px",
+                            
                             Created_at = DateTime.Now.AddDays(-10),
                             Updated_at = DateTime.Now.AddDays(-2),
                             CategoryId = 6,
@@ -92,7 +92,7 @@ namespace eBikes.Data
                             Description = "Pivot Cycles makes fantastic mountain bikes, but its names have never caught my attention.",
                             Price = 150,
                             imageName = "https://cdn.shopify.com/s/files/1/2318/5263/files/Name4_2048x2048.jpg?v=1572560509",
-                            imageSize = "33px",
+                            
                             Created_at = DateTime.Now.AddDays(-10),
                             Updated_at = DateTime.Now.AddDays(-2),
                             CategoryId = 7,

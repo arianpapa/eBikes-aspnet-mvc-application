@@ -14,9 +14,6 @@ namespace eBikes.Models
             [MaxLength(255)]
             [Display(Name = "Category Description")]
             public string imageName { get; set; }
-            [MaxLength(255)]
-            public string imageSize { get; set; }
-            [MaxLength(255)]
             public DateTime Created_at { get; set; }
             public DateTime Updated_at { get; set; }
 

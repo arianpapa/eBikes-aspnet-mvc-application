@@ -14,8 +14,7 @@ namespace eBikes.Models
         public double Price { get; set; }
         [MaxLength(255)]
         public string imageName { get; set; }
-        [MaxLength(255)]
-        public string imageSize { get; set; }
+
         public DateTime Created_at { get; set; }
         public DateTime Updated_at { get; set; }
         public int Quantity { get; set; }

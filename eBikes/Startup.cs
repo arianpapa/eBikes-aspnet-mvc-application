@@ -1,4 +1,5 @@
 ﻿using eBikes.Data;
+using eBikes.Data.Repositories;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -34,7 +35,7 @@ namespace eBikes
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString")));
 
             //Services configuration
-            //services.AddScoped<IActorsService, ActorsService>();
+            services.AddScoped<IBlogsRepository, BlogsRepository>();
             //services.AddScoped<IProducersService, ProducersService>();
             //services.AddScoped<ICinemasService, CinemasService>();
             //services.AddScoped<IMoviesService, MoviesService>();
