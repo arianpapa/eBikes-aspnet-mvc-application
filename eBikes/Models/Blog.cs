@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using eBikes.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace eBikes.Models
 {
-    public class Blog
+    //IEntityBase eshte shtuar ...
+    public class Blog : IEntityBase
     {
         [Key]
         public int Id { get; set; }
