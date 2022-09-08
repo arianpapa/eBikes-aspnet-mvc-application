@@ -1,5 +1,4 @@
-﻿using eBikes.Data;
-using eBikes.Data.Repositories;
+﻿
 using eBikes.Data.Repositories;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authorization;
