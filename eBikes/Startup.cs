@@ -36,8 +36,7 @@ namespace eBikes
 
             //Services configuration
             services.AddScoped<IBlogsRepository, BlogsRepository>();
-            //services.AddScoped<IProducersService, ProducersService>();
-            //services.AddScoped<ICinemasService, CinemasService>();
+            services.AddScoped<ICategoriesRepository, CategoriesRepository>();
             //services.AddScoped<IMoviesService, MoviesService>();
             //services.AddScoped<IOrdersService, OrdersService>();
 
