@@ -6,9 +6,9 @@ namespace eBikes.Data.Repositories
 {
     public interface IProductsRepository : IEntityBaseRepository<Product>
     {
-        Task<Product> GetMovieByIdAsync(int id);
+        Task<Product> GetProductByIdAsync(int id);
         Task<NewProductDropdownsVM> GetNewProductDropdownsValues();
         Task AddNewProductAsync(NewProductVM data);
-        //Task UpdateMovieAsync(NewMovieVM data);
+        Task UpdateProductAsync(NewProductVM data);
     }
 }

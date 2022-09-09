@@ -27,28 +27,29 @@ namespace eBikes.Controllers
             return View(allProducts);
         }
 
-        //[AllowAnonymous]
-        //public async Task<IActionResult> Filter(string searchString)
-        //{
-        //    var allMovies = await _service.GetAllAsync(n => n.Cinema);
+        [AllowAnonymous]
+        public async Task<IActionResult> Filter(string searchString)
+        {
+            var allProducts = await _repository.GetAllAsync(n => n.Category);
 
-        //    if (!string.IsNullOrEmpty(searchString))
-        //    {
-        //        //var filteredResult = allMovies.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || n.Description.ToLower().Contains(searchString.ToLower())).ToList();
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                var filteredResult = allProducts.Where(n => n.Name.ToLower().Contains(searchString.ToLower()) || 
+                n.Description.ToLower().Contains(searchString.ToLower())).ToList();
 
-        //        var filteredResultNew = allMovies.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
+                //var filteredResultNew = allProducts.Where(n => string.Equals(n.Name, searchString, StringComparison.CurrentCultureIgnoreCase) || string.Equals(n.Description, searchString, StringComparison.CurrentCultureIgnoreCase)).ToList();
 
-        //        return View("Index", filteredResultNew);
-        //    }
+                return View("Index", filteredResult);
+            }
 
-        //    return View("Index", allMovies);
-        //}
+            return View("Index", allProducts);
+        }
 
         //GET: Products/Details/1
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
-            var productDetail = await _repository.GetMovieByIdAsync(id);
+            var productDetail = await _repository.GetProductByIdAsync(id);
             return View(productDetail);
         }
 
@@ -91,38 +92,32 @@ namespace eBikes.Controllers
                 Name = productDetails.Name,
                 Description = productDetails.Description,
                 Price = productDetails.Price,
-                StartDate = productDetails.StartDate,
-                EndDate = productDetails.EndDate,
-                ImageURL = productDetails.ImageURL,
-                MovieCategory = productDetails.MovieCategory,
-                CinemaId = productDetails.CinemaId,
-                ProducerId = productDetails.ProducerId,
-                ActorIds = productDetails.Actors_Movies.Select(n => n.ActorId).ToList(),
+                Created_at = productDetails.Created_at,
+                imageName = productDetails.imageName,
+                CategoryId = productDetails.CategoryId
             };
 
             var productDropdownsData = await _repository.GetNewProductDropdownsValues();
-            ViewBag.Cinemas = new SelectList(productDropdownsData.Cinemas, "Id", "Name");
+            ViewBag.Categories = new SelectList(productDropdownsData.Categories, "Id", "Name");
  
             return View(response);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, NewMovieVM movie)
+        public async Task<IActionResult> Edit(int id, NewProductVM product)
         {
-            if (id != movie.Id) return View("NotFound");
+            if (id != product.Id) return View("NotFound");
 
             if (!ModelState.IsValid)
             {
-                var movieDropdownsData = await _service.GetNewMovieDropdownsValues();
+                var productDropdownsData = await _repository.GetNewProductDropdownsValues();
 
-                ViewBag.Cinemas = new SelectList(movieDropdownsData.Cinemas, "Id", "Name");
-                ViewBag.Producers = new SelectList(movieDropdownsData.Producers, "Id", "FullName");
-                ViewBag.Actors = new SelectList(movieDropdownsData.Actors, "Id", "FullName");
+                ViewBag.Categories = new SelectList(productDropdownsData.Categories, "Id", "Name");
 
-                return View(movie);
+                return View(product);
             }
 
-            await _service.UpdateMovieAsync(movie);
+            await _repository.UpdateProductAsync(product);
             return RedirectToAction(nameof(Index));
         }
     }

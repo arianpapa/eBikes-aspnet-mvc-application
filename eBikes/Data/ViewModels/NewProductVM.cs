@@ -6,6 +6,7 @@ namespace eBikes.Models
 {
     public class NewProductVM
     {
+        public int Id { get; set; }
         [Display(Name = "Product name")]
         [Required(ErrorMessage = "Name is required")]
         [MaxLength(255)]
