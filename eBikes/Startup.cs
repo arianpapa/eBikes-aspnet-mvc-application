@@ -1,4 +1,5 @@
 ﻿using eBikes.Data;
+using eBikes.Data.Cart;
 using eBikes.Data.Repositories;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -41,7 +42,10 @@ namespace eBikes
             //services.AddScoped<IOrdersService, OrdersService>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            //services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+            services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+
+            
+
 
             //Authentication and authorization
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();

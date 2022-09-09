@@ -10,22 +10,16 @@ namespace eBikes.Models
         public int Id { get; set; }
         [MaxLength(255)]
         public string Name { get; set; }
-        public double Price { get; set; }
         [MaxLength(255)]
         public string Status { get; set; }
         public DateTime Created_at { get; set; }
         public DateTime Updated_at { get; set; }
 
-
         //User
         public string UserId { get; set; }
-        [ForeignKey(nameof(UserId))]
+        [ForeignKey("UserId")]
         public ApplicationUser User { get; set; }
 
-        //Product
-        public int ProductId { get; set; }
-        [ForeignKey("ProductId")]
-        public Product Product { get; set; }
-
+        public List<OrderItem> OrderItems { get; set; }
     }
 }
