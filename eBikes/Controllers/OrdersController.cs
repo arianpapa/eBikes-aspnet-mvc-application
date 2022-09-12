@@ -2,6 +2,7 @@
 using eBikes.Data.Repositories;
 using eBikes.Data.Static;
 using eBikes.Data.ViewModels;
+using eBikes.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -74,7 +75,26 @@ namespace eBikes.Controllers
             string userEmailAddress = User.FindFirstValue(ClaimTypes.Email);
 
             await _ordersRepository.StoreOrderAsync(items, userId, userEmailAddress);
+            var newProductVM = new NewProductVM();
+            foreach (var item in items)
+            {
+                item.Product.Quantity -=  item.Amount;
+                newProductVM = new NewProductVM 
+                { 
+                    CategoryId = item.Product.CategoryId,
+                    Quantity = item.Product.Quantity,
+                    Description = item.Product.Description, 
+                    imageName = item.Product.imageName,
+                    Name = item.Product.Name,
+                    Price = item.Product.Price,
+                    Id = item.Product.Id
+                };
+                    
+                
+               await _productsRepository.UpdateProductAsync(newProductVM) ;
+            }
             await _shoppingCart.ClearShoppingCartAsync();
+
 
             return View("OrderCompleted");
         }
