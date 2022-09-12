@@ -1,5 +1,6 @@
 ﻿using eBikes.Data;
 using eBikes.Data.Repositories;
+using eBikes.Data.Static;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -8,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eBikes.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class CategoriesController : Controller
     {
         //private readonly UserManager<ApplicationUser> _userManager;
@@ -28,7 +30,7 @@ namespace eBikes.Controllers
             return View(allCategories);
         }
 
-        //Get: Cinemas/Create
+        //Get: Categories/Create
         public IActionResult Create()
         {
             return View();
@@ -42,7 +44,7 @@ namespace eBikes.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //Get: Cinemas/Details/1
+        //Get: Categories/Details/1
         [AllowAnonymous]
         public async Task<IActionResult> Details(int id)
         {
@@ -51,7 +53,7 @@ namespace eBikes.Controllers
             return View(categoryDetails);
         }
 
-        //Get: Cinemas/Edit/1
+        //Get: Categories/Edit/1
         public async Task<IActionResult> Edit(int id)
         {
             var categoryDetails = await _repository.GetByIdAsync(id);
@@ -67,7 +69,7 @@ namespace eBikes.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        //Get: Cinemas/Delete/1
+        //Get: Categories/Delete/1
         public async Task<IActionResult> Delete(int id)
         {
             var categoryDetails = await _repository.GetByIdAsync(id);

@@ -1,5 +1,6 @@
 ﻿using eBikes.Data.Cart;
 using eBikes.Data.Repositories;
+using eBikes.Data.Static;
 using eBikes.Data.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -7,9 +8,9 @@ using System.Security.Claims;
 
 namespace eBikes.Controllers
 {
+    [Authorize]
     public class OrdersController : Controller
     {
-
         private readonly IProductsRepository _productsRepository;
         private readonly ShoppingCart _shoppingCart;
         private readonly IOrdersRepository _ordersRepository;
@@ -21,16 +22,16 @@ namespace eBikes.Controllers
             _ordersRepository = ordersRepository;
         }
 
-            //public async Task<IActionResult> Index()
-            //{
-            //    string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //    string userRole = User.FindFirstValue(ClaimTypes.Role);
+        public async Task<IActionResult> Index()
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
 
-            //    var orders = await _ordersService.GetOrdersByUserIdAndRoleAsync(userId, userRole);
-            //    return View(orders);
-            //}
+            var orders = await _ordersRepository.GetOrdersByUserIdAndRoleAsync(userId, userRole);
+            return View(orders);
+        }
 
-            public IActionResult ShoppingCart()
+        public IActionResult ShoppingCart()
             {
                 var items = _shoppingCart.GetShoppingCartItems();
                 _shoppingCart.ShoppingCartItems = items;

@@ -1,5 +1,6 @@
 ﻿using eBikes.Data;
 using eBikes.Data.Repositories;
+using eBikes.Data.Static;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eBikes.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class ProductsController : Controller
     {
         private readonly IProductsRepository _repository;

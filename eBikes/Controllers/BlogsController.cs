@@ -1,5 +1,6 @@
 ﻿
 using eBikes.Data.Repositories;
+using eBikes.Data.Static;
 using eBikes.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -12,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace eBikes.Controllers
 {
+    [Authorize(Roles = UserRoles.Admin)]
     public class BlogsController : Controller
     {
         //private readonly UserManager<ApplicationUser> _userManager;
@@ -24,6 +26,8 @@ namespace eBikes.Controllers
             //_signInManager = signInManager;
             _repository = repository;
         }
+
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var data = await _repository.GetAllAsync();
