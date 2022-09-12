@@ -39,7 +39,7 @@ namespace eBikes
             services.AddScoped<IBlogsRepository, BlogsRepository>();
             services.AddScoped<ICategoriesRepository, CategoriesRepository>();
             services.AddScoped<IProductsRepository, ProductsRepository>();
-            //services.AddScoped<IOrdersService, OrdersService>();
+            services.AddScoped<IOrdersRepository, OrdersRepository>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

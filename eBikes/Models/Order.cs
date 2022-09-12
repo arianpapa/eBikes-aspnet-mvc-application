@@ -9,9 +9,8 @@ namespace eBikes.Models
         [Key]
         public int Id { get; set; }
         [MaxLength(255)]
-        public string Name { get; set; }
-        [MaxLength(255)]
-        public string Status { get; set; }
+        public string Email { get; set; }
+
         public DateTime Created_at { get; set; }
         public DateTime Updated_at { get; set; }
 
