@@ -30,15 +30,13 @@ namespace eBikes.Data
                         new Category()
                         {
                             Name = "Road bikes",
-                            imageName = "http://dotnethow.net/images/cinemas/cinema-4.jpeg",
-
+                            imageName = "https://www.edinburghbicycle.com/images/3816/1537/1536/giant-colorbconcrete.jpg",
                             Description = "This is the description of the Road bikes"
                         },
                         new Category()
                         {
                             Name = "Mountain bikes",
-                            imageName = "http://dotnethow.net/images/cinemas/cinema-5.jpeg",
-
+                            imageName = "https://www.edinburghbicycle.com/images/1116/1537/1538/mountain-bike.jpeg",
                             Description = "This is the description of the Mountain bikes"
                         },
                     });
@@ -52,10 +50,11 @@ namespace eBikes.Data
                     {
                         new Blog()
                         {
-                            Title = "Blog 1",
-                            Description = "This is the Blog of the second race",
+                            Title = "This sunday trip to Bovilla",
+                            Description = "Our group is organizing a trip to bovilla lake this saturday. " +
+                            "Departure will be at 8:00 from Mother Teresa Square. For more information contact the number 355123.",
                             Author = "Edi Mimo",
-                            imageName = "http://dotnethow.net/images/actors/actor-4.jpeg",
+                            imageName = "https://i0.wp.com/alpventurer.com/wp-content/uploads/2019/03/Bovilla-lake-2020-scaled.jpg?resize=771%2C514&ssl=1",
 
                         },
                         new Blog()
