@@ -13,6 +13,8 @@ namespace eBikes.Controllers
     [Authorize(Roles = UserRoles.Admin)]
     public class ProductsController : Controller
     {
+        //private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IProductsRepository _repository;
 
         public ProductsController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IProductsRepository repository)

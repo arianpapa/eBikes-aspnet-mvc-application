@@ -35,10 +35,20 @@
                                 <i class="bi bi-cart-dash"></i>
                             </a>
                             |
-                            <a class="text-success" asp-controller="Orders" asp-action="AddItemToShoppingCart"
-                               asp-route-id="@item.Product.Id">
-                                <i class="bi bi-cart-plus"></i>
-                            </a>
+                            @*@if (@item.Amount >= item.Product.Quantity)
+                            {*@
+                               <a class="text-success @((@item.Amount >= item.Product.Quantity) ? "disabled" : "")" 
+                                   asp-controller="Orders" asp-action="AddItemToShoppingCart" asp-route-id="@item.Product.Id">
+                                    <i class="bi bi-cart-plus"></i>
+                               </a>
+                            @*}
+                            else
+                            {*@
+                                 @*<a class="text-success" asp-controller="Orders" asp-action="AddItemToShoppingCart"
+                                     asp-route-id="@item.Product.Id">
+                                     <i class="bi bi-cart-plus"></i>
+                                 </a>*@
+                            @*}*@
                         </td>
                     </tr>
                 }
