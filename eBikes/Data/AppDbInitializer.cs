@@ -53,16 +53,17 @@ namespace eBikes.Data
                             Title = "This sunday trip to Bovilla",
                             Description = "Our group is organizing a trip to bovilla lake this saturday. " +
                             "Departure will be at 8:00 from Mother Teresa Square. For more information contact the number 355123.",
-                            Author = "Edi Mimo",
+                            Author = "Edi Sokoli",
                             imageName = "https://i0.wp.com/alpventurer.com/wp-content/uploads/2019/03/Bovilla-lake-2020-scaled.jpg?resize=771%2C514&ssl=1",
 
                         },
                         new Blog()
                         {
-                            Title = "Blog 2",
-                            Description = "This is the Blog of the first race",
-                            Author = "Sokol Nimi",
-                            imageName = "http://dotnethow.net/images/actors/actor-5.jpeg",
+                            Title = "Lake Race",
+                            Description = "Grab your bike and assemble your crew to take on a mountains-to-low country " +
+                            "challenge on two wheels over the course of 48 hours.",
+                            Author = "Jonel Miska",
+                            imageName = "https://images.squarespace-cdn.com/content/v1/5a20ab3e010027b949b0534d/1512508984750-2J5AVRAIEAWSTIHDVJON/MoabSkinnyTireEvents_04.jpg?format=300w",
 
                         }
                     });
